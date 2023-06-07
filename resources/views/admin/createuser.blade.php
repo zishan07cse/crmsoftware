@@ -1,6 +1,11 @@
 @extends('admin.layouts.master')
 
 @section('content')
+<style>
+  .mt4{
+    margin-top:12px;
+  }
+</style>  
 <!-- partial -->
 <div class="main-panel">
     <div class="content-wrapper">
@@ -28,7 +33,7 @@
                   <form class="forms-sample" action="{{url('/')}}/admin/user/store" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                      <label for="exampleInputUsername1">Username</label>
+                      <label for="exampleInputUsername1">Fullname</label>
                       <input id="username" type="text" class="form-control @error('name') is-invalid
                           @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                     </div>
@@ -38,7 +43,7 @@
                       name="email" value="{{ old('email') }}" required autocomplete="email">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
+                      <label for="e utPassword1">Password</label>
                       <input id="userpassword" type="password" name="password" class="form-control" placeholder="Password"
                       required autocomplete="password">
                     </div>
@@ -49,11 +54,40 @@
                     </div>
                     <div class="form-group">
                     <label for="exampleFormControlSelect1" required>User Type</label>
-                    <select class="form-control form-control-lg" id="type"  name="type">
+                    <select class="form-control form-control-lg" id="type"  name="type" onChange="selectType();">
                       <option value="1">Admin</option>
                       <option value ="0">User</option>
                     </select>
-                  </div>
+                    </div>
+                    <div class="form-group" id="section" style="display:none" >
+                      <label class="exampleFormControlSelect1">Membership</label>
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-check ">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked>
+                              Realestate
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-check">
+                            <label class="form-check-label mt4">
+                              <input type="checkbox" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
+                              Investment
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-check">
+                            <label class="form-check-label mt4">
+                              <input type="checkbox" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
+                              Software
+                            </label>
+                          </div>
+                        </div>
+                      </div>  
+                    </div>
                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
                   </form>
                 </div>
@@ -65,3 +99,18 @@
 </div>  
     <!-- main-panel ends -->
 @endsection
+<script>
+
+  function selectType(){
+    var e = document.getElementById("type");
+    var value = e.value;
+    console.log(value);
+    if(value==0){
+      document.getElementById('section').style.display = 'block';
+    }else{
+      document.getElementById('section').style.display = 'none';
+    }
+    
+  }
+
+</script>  

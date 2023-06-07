@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Casts\Attribute;
+//use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
 
-class RealEstate extends Authenticatable
+class RealEstate_Customer extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    protected $table = 'realestate_customer';
     /**
      * The attributes that are mass assignable.
      *
@@ -20,20 +21,13 @@ class RealEstate extends Authenticatable
 
      */
     protected $fillable = [
-        'cif',
         'fullname',
         'nationality',
         'country',
-        'customer_category',
         'mobilenumber',
         'profession',
-        'designation',
-        'organizationname',
-        'annualincome',
-        'disbursement',
-        'totalfinanceamount',
-        'assefinanceamount',
-        'delinquency',
+        'organizationna',
+        'referance',
         'userid',
         'status'
     ];
@@ -68,7 +62,7 @@ class RealEstate extends Authenticatable
     protected function type(): Attribute
     {
         return new Attribute(
-            get: fn($value) => ["user", "admin", "manager"][$value],
+
         );
     }
 }

@@ -1,14 +1,14 @@
   <!-- partial:partials/_navbar.html -->
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-    <a class="navbar-brand brand-logo" href="location"><img src="{{asset('/images/st_logo.png')}}" alt="logo"/></a>
-    <a class="navbar-brand brand-logo-mini" href="index-2.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+    <a class="navbar-brand brand-logo" href="/user/realestate/home"><img src="{{asset('/images/st_logo.png')}}" alt="logo" style="width:120px;"/></a>
+    <a class="navbar-brand brand-logo-mini" href="index-2.html"><img src="{{asset('/images/st_logo.png')}}" alt="logo" style="width:120px;"/></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-stretch">
     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
         <span class="fas fa-bars"></span>
     </button>
-    <ul class="navbar-nav">
+    <!-- <ul class="navbar-nav">
         <li class="nav-item nav-search d-none d-md-flex">
         <div class="nav-link">
             <div class="input-group">
@@ -21,35 +21,8 @@
             </div>
         </div>
         </li>
-    </ul>
+    </ul> -->
     <ul class="navbar-nav navbar-nav-right">
-        <li class="nav-item d-none d-lg-flex">
-        <a class="nav-link" href="#">
-            <span class="btn btn-primary">+ Create new</span>
-        </a>
-        </li>
-        <li class="nav-item dropdown d-none d-lg-flex">
-        <div class="nav-link">
-            <span class="dropdown-toggle btn btn-outline-dark" id="languageDropdown" data-toggle="dropdown">English</span>
-            <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
-            <a class="dropdown-item font-weight-medium" href="#">
-                French
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item font-weight-medium" href="#">
-                Espanol
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item font-weight-medium" href="#">
-                Latin
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item font-weight-medium" href="#">
-                Arabic
-            </a>
-            </div>
-        </div>
-        </li>
         <li class="nav-item dropdown">
         <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
             <i class="fas fa-bell mx-0"></i>
@@ -179,11 +152,6 @@
                 @csrf
             </form>
         </div>
-        </li>
-        <li class="nav-item nav-settings d-none d-lg-block">
-        <a class="nav-link" href="#">
-            <i class="fas fa-ellipsis-h"></i>
-        </a>
         </li>
     </ul>
     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">

@@ -16,7 +16,7 @@ class UserController extends Controller
         return view('admin.alluserlist', compact('userlist'));
     }
 
-    /**
+    /**git
      * Show the form for creating a new resource.
      */
     public function create()

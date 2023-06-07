@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RealEstateCustomerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +29,10 @@ Auth::routes();
 
 Route::middleware(['auth', 'user-access:user'])->group(function () {
 
-    Route::get('/realestate/home', [HomeController::class, 'index'])->name('home');
+    Route::get('user/realestate/home', [HomeController::class, 'index'])->name('home');
     Route::get('/invetment/home', [HomeController::class, 'investment'])->name('investment');
     Route::get('/software/home', [HomeController::class, 'software'])->name('software');
+    Route::get('user/realestate/customer/call', [RealEstateCustomerController::class, 'index']);
 });
 
 /*------------------------------------------

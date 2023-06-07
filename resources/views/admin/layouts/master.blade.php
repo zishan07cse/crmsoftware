@@ -10,8 +10,10 @@
   <link  href="{{ asset('vendors/iconfonts/font-awesome/css/allin.css') }}" rel="stylesheet" type="text/css" >      
   <link rel="stylesheet" href="{{ asset('vendors/iconfonts/font-awesome/css/all.min.css')}}">
   <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css')}}">
-  <link  rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.addons.cs')}}">
+  <link  rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.addons.css')}}">
   <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   
   <!-- @include('user.styles') -->
 </head>
@@ -54,7 +56,16 @@
 <script src="{{ asset('js/settings.js')}}"></script>
 <script src="{{ asset('js/todolist.js')}}"></script>
 <script src="{{ asset('js/dashboard.js')}}"></script>
-
+<script src="{{ asset('js/jquery-3.5.1.js')}}"></script>
+<script src="{{ asset('js/formpickers.js')}}"></script>
+<!-- <script src="{{ asset('js/form-addons.js')}}"></script> -->
+<script src="{{ asset('js/x-editable.js')}}"></script>
+<!-- <script src="{{ asset('js/dropify.js')}}"></script> -->
+<script src="{{ asset('js/jquery-file-upload.js')}}"></script>
+<!-- <script src="{{ asset('js/dropzone.js')}}"></script> -->
+<script src="{{ asset('js/jquery-file-upload.js')}}"></script>
+<script src="{{ asset('js/formpickers.js')}}"></script>
+<script src="{{ asset('js/form-repeater.js')}}"></script>
 <!-- @include('user.scripts')  -->
 </body>
 </html>
