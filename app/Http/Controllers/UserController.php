@@ -12,10 +12,16 @@ class UserController extends Controller
     public function index()
     {
         //
-        $userlist = User::select('id', 'name', 'email', 'type')->get();
-        return view('admin.alluserlist', compact('userlist'));
+
+
     }
 
+    public function userlist()
+    {
+        $userlist = User::select('id', 'name', 'email', 'type')->get();
+        return view('admin.alluserlist', compact('userlist'));
+
+    }
     /**git
      * Show the form for creating a new resource.
      */
@@ -37,6 +43,7 @@ class UserController extends Controller
             'email' => 'required|unique:users,email',
             'password' => 'required|min:6|confirmed',
             'type' => 'required',
+            'section' => 'required'
         ]);
         User::create([
             'name' => $request['name'],

@@ -65,7 +65,7 @@
                         <div class="col-sm-4">
                           <div class="form-check ">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked>
+                              <input type="checkbox" class="form-check-input" name="section[]" id="membershipRadios1" value="" checked>
                               Realestate
                             </label>
                           </div>
@@ -73,7 +73,7 @@
                         <div class="col-sm-3">
                           <div class="form-check">
                             <label class="form-check-label mt4">
-                              <input type="checkbox" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
+                              <input type="checkbox" class="form-check-input" name="section[]" id="membershipRadios2" value="option2">
                               Investment
                             </label>
                           </div>
@@ -81,7 +81,7 @@
                         <div class="col-sm-3">
                           <div class="form-check">
                             <label class="form-check-label mt4">
-                              <input type="checkbox" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
+                              <input type="checkbox" class="form-check-input" name="section[]" id="membershipRadios2" value="option2">
                               Software
                             </label>
                           </div>

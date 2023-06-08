@@ -39,17 +39,17 @@
                     <div class="row">
 
                         <div class="col-lg-4">
-                            <a href=" {{ route('login', ['parameter' => 1]) }}">
+                            <a href="{{ url('/user', ['parameter' => 1]) }}">
                                 <button type="button" class="btn btn-info btn-lg btn-block">Real Estate</button>
                             </a>
                         </div>
                         <div class="col-lg-4">
-                            <a href=" {{ route('login', ['parameter' => 2]) }}">
+                            <a href="{{ url('/user', ['parameter' => 2]) }}">
                                 <button type="button" class="btn btn-info btn-lg btn-block">Invetment Service</button>
                             </a>    
                         </div>
                         <div class="col-lg-4">
-                            <a href=" {{ route('login', ['parameter' => 3]) }}">
+                            <a href="{{ url('/user', ['parameter' => 3]) }}">
                                  <button type="button" class="btn btn-info btn-lg btn-block">It / Software Service</button>
                             </a>     
                         </div>

@@ -1,5 +1,14 @@
 @extends('layouts.master_login')
 @section('content')
+@php 
+  if ($param ==1){
+    $dashboardtype = "Realestate";
+  }else if($param==2){
+    $dashboardtype = "Invetment";
+  }else{
+    $dashboardtype = "Software";
+  }
+@endphp
 <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
@@ -48,13 +57,13 @@
                         </span>
                     @enderror                 
                   </div>
+                  <div class="form-group">
+                        <input id="type" type="hidden" class="form-control" 
+                            name="dashtype" value="{{$param}}">
+                    </div>
                   <div class="form-group mt-3">
                     <label for="exampleFormControlSelect1" required>Dasboard Type</label>
-                    <select class="form-control form-control-lg" id="dashtype"  name="dashtype">
-                      <option value="1">Real Estate</option>
-                      <option value ="2">investment</option>
-                      <option value ="3">Sofware</option>
-                    </select>
+                    <input id="text" type="text" class="form-control" name="dashboardtype" value={{$dashboardtype}}  maxlength="255" >
                   </div>
                 </div>
                 <div class="my-3">

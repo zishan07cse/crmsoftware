@@ -17,10 +17,19 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    //return view('auth.login');
     return view('welcome');
 });
 
+Route::get('/user/{parameter}', function ($parameter) {
+    if ($parameter == 1) {
+        return view('auth.login', ['param' => '1']);
+
+    } else if ($parameter == 2) {
+        return view('auth.login', ['param' => '2']);
+    } else {
+        return view('auth.login', ['param' => '3']);
+    }
+});
 Route::get('/admin', function () {
     return view('auth.adminlogin');
     // return view('welcome');
@@ -28,7 +37,7 @@ Route::get('/admin', function () {
 Auth::routes();
 
 Route::middleware(['auth', 'user-access:user'])->group(function () {
-
+    Route::get('user/login', [UserController::class, 'login']);
     Route::get('user/realestate/home', [HomeController::class, 'index'])->name('home');
     Route::get('/invetment/home', [HomeController::class, 'investment'])->name('investment');
     Route::get('/software/home', [HomeController::class, 'software'])->name('software');
@@ -46,7 +55,7 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-    Route::get('/admin/user/userlist', [UserController::class, 'index']);
+    Route::get('/admin/user/userlist', [UserController::class, 'userlist']);
     Route::get('/admin/user/create', [UserController::class, 'create']);
     Route::post('/admin/user/store', [UserController::class, 'store']);
     Route::get('admin/user/edit/{id}', [UserController::class, 'edit']);
