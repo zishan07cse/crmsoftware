@@ -27,6 +27,7 @@
     dropdown: true,
     scrollbar: true
 });
+@php $userid = Auth::user()->id  @endphp 
   </script>
 </script>   
 @section('content')
@@ -134,20 +135,35 @@
                                         </li>
                                     </ul>
                                     <div class="tab-content">
+                                            @if ($errors->any())
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
                                             <div class="tab-pane fade show active" id="home-1" role="tabpanel" aria-labelledby="home-tab">
-                                                <form class="forms-sample">
+                                                <form class="forms-sample" action="{{url('/')}}/user/realestate/customer/callinfosubmit" method="POST" 
+                                                 enctype="multipart/form-data">
+                                                 @csrf
                                                     <div class="form-group">
                                                         <input id="type" type="hidden" class="form-control" 
                                                             name="customerid" value=" @php  echo $realestate_customer->id @endphp ">
                                                     </div>
                                                     <div class="form-group">
                                                         <input id="type" type="hidden" class="form-control" 
-                                                            name="userrid" value="{{ Auth::user()->id }}">
+                                                            name="userid" value="{{ Auth::user()->id }}">
                                                     </div> 
+                                                    <div class="form-group">
+                                                        <input id="type" type="hidden" class="form-control" 
+                                                            name="sectiontype" value="1">
+                                                    </div>
                                                     <label for="exampleInputName1">Select Called Date</label>
                                                     <div class="form-group">
                                                         <div class='input-group date' id="datepicker">
-                                                        <input type='text' class="form-control" />
+                                                        <input type='text' class="form-control" name ="date" />
                                                         <span class="input-group-addon">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
@@ -157,7 +173,7 @@
                                                          <label for="exampleInputName1">Select Called Time</label>
                                                     
                                                         <div class='input-group date' id="datepicker">
-                                                        <input type='text' class="form-control" />
+                                                        <input type='text' class="form-control"  name="time"/>
                                                         <span class="input-group-addon">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
@@ -165,7 +181,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleFormControlSelect1" required>Call</label>
-                                                        <select class="form-control form-control-lg" id="type"  name="type">
+                                                        <select class="form-control form-control-lg" id="totalcalled"  name="totalcalled">
                                                         <option value="1">First time</option>
                                                         <option value ="2">Second time</option>
                                                         <option value="3">Third time</option>
@@ -228,7 +244,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <input id="type" type="hidden" class="form-control" 
-                                                        name="userrid" value="{{ Auth::user()->id }}">
+                                                        name="userrid" value="{{ $userid}}">
                                                 </div> 
                                                 <div class="form-group">
                                                     <label for="exampleInputName1">Select Follow up Date</label>

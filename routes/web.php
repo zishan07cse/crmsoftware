@@ -42,12 +42,12 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/invetment/home', [HomeController::class, 'investment'])->name('investment');
     Route::get('/software/home', [HomeController::class, 'software'])->name('software');
     Route::get('user/realestate/customer/call', [RealEstateCustomerController::class, 'index']);
-    Route::post('user/realestate/customer/callinfosubmit', [RealEstateCustomerController::class, 'callinfosubmit']);
+    Route::post('/user/realestate/customer/callinfosubmit', [RealEstateCustomerController::class, 'callinfosubmit']);
     Route::post('user/realestate/customer/followupsubmit', [RealEstateCustomerController::class, 'followupsubmit']);
     Route::post('user/realestate/customer/meetingsubmit', [RealEstateCustomerController::class, 'meetingsubmit']);
 });
 
-/*------------------------------------------
+/*------ ------------------------------------
 --------------------------------------------
 All Admin Routes List
 --------------------------------------------/

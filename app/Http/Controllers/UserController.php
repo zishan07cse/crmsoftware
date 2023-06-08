@@ -49,8 +49,7 @@ class UserController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'type' => $request['type'],
-
+            'type' => $request['type']
         ]);
         return redirect('/admin/user/userlist')->with('success', 'User has been added successfully');
 
