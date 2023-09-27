@@ -10,8 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        //
-        Schema::drop('users');
+        Schema::table('calllists', function (Blueprint $table) {
+            //
+            $table->string('calledtext');
+        });
     }
 
     /**
@@ -19,6 +21,9 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        //
+        Schema::table('calllists', function (Blueprint $table) {
+            //
+            $table->dropColumn('calledtext');
+        });
     }
 };

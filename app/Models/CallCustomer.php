@@ -26,6 +26,7 @@ class CallCustomer extends Model
         'customerid',
         'totalcalled',
         'sectiontype',
+        'calledtext'
     ];
 
     /**

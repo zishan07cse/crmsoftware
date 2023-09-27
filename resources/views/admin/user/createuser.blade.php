@@ -60,12 +60,12 @@
                     </select>
                     </div>
                     <div class="form-group" id="section" style="display:none" >
-                      <label class="exampleFormControlSelect1">Membership</label>
+                      <label class="exampleFormControlSelect1">Section</label>
                       <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                           <div class="form-check ">
-                            <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" name="section[]" id="membershipRadios1" value="" checked>
+                            <label class="form-check-label mt4">
+                              <input type="checkbox" class="form-check-input" name="section[]" id="section1" value="1" checked>
                               Realestate
                             </label>
                           </div>
@@ -73,7 +73,7 @@
                         <div class="col-sm-3">
                           <div class="form-check">
                             <label class="form-check-label mt4">
-                              <input type="checkbox" class="form-check-input" name="section[]" id="membershipRadios2" value="option2">
+                              <input type="checkbox" class="form-check-input" name="section[]" id="section2" value="2">
                               Investment
                             </label>
                           </div>
@@ -81,7 +81,7 @@
                         <div class="col-sm-3">
                           <div class="form-check">
                             <label class="form-check-label mt4">
-                              <input type="checkbox" class="form-check-input" name="section[]" id="membershipRadios2" value="option2">
+                              <input type="checkbox" class="form-check-input" name="section[]" id="section3" value="3">
                               Software
                             </label>
                           </div>

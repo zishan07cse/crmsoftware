@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RealEstateCustomerController;
 use App\Http\Controllers\UserController;
@@ -16,35 +17,67 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/user/{parameter}', function ($parameter) {
-    if ($parameter == 1) {
-        return view('auth.login', ['param' => '1']);
+// Route::get('/login', function () {
+//     return view('auth.userlogin');
+// });
 
-    } else if ($parameter == 2) {
-        return view('auth.login', ['param' => '2']);
-    } else {
-        return view('auth.login', ['param' => '3']);
-    }
-});
+
+
+//Route::get('/user/login/{id}', [UserController::class, 'userlogin']);
 Route::get('/admin', function () {
     return view('auth.adminlogin');
     // return view('welcome');
 });
+
 Auth::routes();
+// Route::get('/login', [LoginController::class, 'index'])->name('userlogin');
+Route::get('/', [LoginController::class, 'index'])->name('userlogin');
+Route::post('login/loginsubmit', [LoginController::class, 'loginsubmit']);
 
 Route::middleware(['auth', 'user-access:user'])->group(function () {
-    Route::get('user/login', [UserController::class, 'login']);
+    // Route::get('user/login', [UserController::class, 'login']);
     Route::get('user/realestate/home', [HomeController::class, 'index'])->name('home');
     Route::get('/invetment/home', [HomeController::class, 'investment'])->name('investment');
     Route::get('/software/home', [HomeController::class, 'software'])->name('software');
-    Route::get('user/realestate/customer/call', [RealEstateCustomerController::class, 'index']);
+    Route::get('/user/realestate/customer/call', [RealEstateCustomerController::class, 'index']);
+    Route::get('/user/realestate/customer/newcustomercall/{id}', [RealEstateCustomerController::class, 'newcustomercall']);
+    Route::get('/user/realestate/customer/customercallback/{id}', [RealEstateCustomerController::class, 'customercallback']);
+    Route::get('/user/realestate/customer/meetinglist', [RealEstateCustomerController::class, 'meetinglist']);
+    Route::get('/user/realestate/customer/allleads', [RealEstateCustomerController::class, 'allleads']);
+    Route::get('/user/realestate/customer/addcustomer', [RealEstateCustomerController::class, 'addcustomer']);
+    Route::get('/user/realestate/customer/followuplist', [RealEstateCustomerController::class, 'followuplist']);
+    Route::get('/user/realestate/customer/upcomingpfollowup', [RealEstateCustomerController::class, 'upcomingpfollowup']);
+    Route::get('/user/realestate/customer/previousfollowup', [RealEstateCustomerController::class, 'previousfollowup']);
+    Route::get('/user/realestate/customer/previousmeeting', [RealEstateCustomerController::class, 'previousmeeting']);
+    Route::get('/user/realestate/customer/upcomingmeeting', [RealEstateCustomerController::class, 'upcomingmeeting']);
+    Route::get('/user/realestate/customer/sellslist', [RealEstateCustomerController::class, 'sellslist']);
+    Route::get('/user/realestate/customer/callback', [RealEstateCustomerController::class, 'callback']);
+    Route::get('/user/realestate/customer/wrongnumber', [RealEstateCustomerController::class, 'wrongnumber']);
+    Route::get('/user/realestate/customer/notanswered', [RealEstateCustomerController::class, 'notanswered']);
+    Route::get('/user/realestate/customer/switchoff', [RealEstateCustomerController::class, 'switchoff']);
+    Route::get('/user/realestate/customer/busy', [RealEstateCustomerController::class, 'busy']);
+    Route::get('/user/realestate/customer/disconneted', [RealEstateCustomerController::class, 'disconneted']);
     Route::post('/user/realestate/customer/callinfosubmit', [RealEstateCustomerController::class, 'callinfosubmit']);
+    Route::post('user/realestate/customer/callinfoupdatesubmit', [RealEstateCustomerController::class, 'callinfoupdatesubmit']);
     Route::post('user/realestate/customer/followupsubmit', [RealEstateCustomerController::class, 'followupsubmit']);
     Route::post('user/realestate/customer/meetingsubmit', [RealEstateCustomerController::class, 'meetingsubmit']);
+    Route::post('user/realestate/customer/newcustomerinfosubmit', [RealEstateCustomerController::class, 'newcustomerinfosubmit']);
+    Route::post('/user/realestate/customer/siteviewsubmit', [RealEstateCustomerController::class, 'siteviewsubmit']);
+    Route::post('user/realestate/customer/statussubmit', [RealEstateCustomerController::class, 'statussubmit']);
+    Route::post('user/realestate/customer/referencesearch', [RealEstateCustomerController::class, 'referencesearch']);
+    Route::post('user/realestate/customer/realestatecustomerimport', [RealEstateCustomerController::class, 'realestatecustomerimport']);
+    Route::post('user/realestate/customer/sendemail', [RealEstateCustomerController::class, 'sendemail']);
+    Route::get('user/realestate/customer/allnewcustomerlist', [RealEstateCustomerController::class, 'allnewcustomerlist']);
+    Route::get('/user/realestate/customer/leadsupdate/{id}', [RealEstateCustomerController::class, 'leadsupdate']);
+    Route::get('/user/realestate/customer/sellsdetail/{id}', [RealEstateCustomerController::class, 'sellsdetail']);
+    Route::post('user/realestate/customer/infoupdate/{id}', [RealEstateCustomerController::class, 'customerinfoupdate']);
+    Route::post('user/realestate/customer/propertychoiceinfoupdate', [RealEstateCustomerController::class, 'propertychoiceinfoupdate']);
+    Route::post('user/realestate/customer/basicinfosubmit', [RealEstateCustomerController::class, 'basicinfosubmit']);
+    Route::post('user/realestate/customer/sellinginfosubmit', [RealEstateCustomerController::class, 'sellinginfosubmit']);
 });
 
 /*------ ------------------------------------

@@ -28,6 +28,9 @@ return new class extends Migration {
             $table->integer('delinquency');
             $table->integer('userid');
             $table->boolean('status')->default(true);
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

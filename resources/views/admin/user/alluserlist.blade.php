@@ -85,9 +85,9 @@
 <script src="{{ asset('js/jquery.dataTables.min.js')}}"></script>
 <script src="{{ asset('js/dataTables.bootstrap4.min.js')}}"></script>
 <script>
- $(document).ready(function () {
-    var table = $('#customerlist').DataTable({
-        "sScrollX": "100%"  
-    });
-});
+//  $(document).ready(function () {
+//     var table = $('#customerlist').DataTable({
+//         "sScrollX": "100%"  
+//     });
+// });
 </script>    

@@ -13,13 +13,12 @@ class UserController extends Controller
     {
         //
 
-
     }
 
     public function userlist()
     {
         $userlist = User::select('id', 'name', 'email', 'type')->get();
-        return view('admin.alluserlist', compact('userlist'));
+        return view('admin.user.alluserlist', compact('userlist'));
 
     }
     /**git
@@ -28,7 +27,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('admin.createuser');
+        return view('admin.user.createuser');
 
     }
 
@@ -43,15 +42,18 @@ class UserController extends Controller
             'email' => 'required|unique:users,email',
             'password' => 'required|min:6|confirmed',
             'type' => 'required',
-            'section' => 'required'
+            'section' => 'required_if:type,==,0'
         ]);
+        // dd($request['section']);
+        $data = implode(', ', $request['section']);
+        //  dd($data);
         User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'type' => $request['type']
+            'type' => $request['type'],
         ]);
-        return redirect('/admin/user/userlist')->with('success', 'User has been added successfully');
+        // return redirect('/admin/user/userlist')->with('success', 'User has been added successfully');
 
     }
 
@@ -60,11 +62,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        // echo "in user  show function";
-        dd();
-        //
-        // $manageruserlist = User::select('id', 'name', 'email', 'type')->where('type', '2')->get();
-        // return view('managerusers.show', compact('manageruserlist'));
+
     }
 
     /**
@@ -74,7 +72,7 @@ class UserController extends Controller
     {
         //
         $userinfo = User::find($id);
-        return view('admin.updateuser', compact('userinfo'));
+        return view('admin.user.updateuser', compact('userinfo'));
     }
 
     /**
